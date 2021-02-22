@@ -16,7 +16,33 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            return -1;
+            //throw argument exception if the given word is empty
+            if (string.IsNullOrEmpty(value)) throw new ArgumentException();
+
+            //variable to store vowel count
+            int count = 0;
+
+            //changing given word to uppercase
+            value = value.ToUpper();
+
+            //looping through each character to check if it is vowel
+            for (int i = 0; i < value.Length; i++)
+            {                
+                switch (value[i])
+                {
+                    //incrementing value of count if vowel is found
+                    case 'A':
+                    case 'E':
+                    case 'I':
+                    case 'O':
+                    case 'U':
+                        ++count;
+                        break;
+                }
+            }
+
+            //returning vowel count
+            return count;
         }
     }
 }
